@@ -4,12 +4,13 @@ This repository is designed to be maintained and evolved with the assistance of 
 
 ## Architecture
 - **Pattern**: Clean Architecture.
-- **Framework**: FastAPI.
+- **Framework**: FastAPI (running on uvloop).
+- **Runtime**: Docker (Python 3.13-slim, multi-stage build).
 - **Logging**: JSONL format strictly.
 - **Configuration**: AWS SSM -> K8s Env -> .env.
 
 ## Conventions
-- **Language**: Python 3.11+.
+- **Language**: Python 3.13.
 - **Docstrings**: Google Style.
 - **Typing**: Strict type hints required.
 - **Tests**: Pytest with high coverage.
@@ -19,3 +20,4 @@ When asking an agent to modify this codebase:
 1. Always check `src/core/config.py` for configuration logic.
 2. Ensure new endpoints follow the HATEOAS pattern.
 3. Update `docs/` when changing API contracts.
+4. Preserve Docker multi-stage build to handle C-extensions (uvloop) compilation.
